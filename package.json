@@ -1,0 +1,11 @@
+{
+  "name": "ai2ia",
+  "version": "2.0.0",
+  "type": "module",
+  "scripts": {
+    "tauri": "tauri"
+  },
+  "devDependencies": {
+    "@tauri-apps/cli": "^2.10.1"
+  }
+}

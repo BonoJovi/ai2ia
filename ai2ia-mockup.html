@@ -1,0 +1,895 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ai2ia - UI Mockup</title>
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: #1a1a2e;
+    color: #e0e0e0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  /* Title Bar */
+  .titlebar {
+    background: #0f0f1a;
+    padding: 8px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #2a2a4a;
+    -webkit-app-region: drag;
+  }
+
+  .titlebar-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: #a0a0c0;
+  }
+
+  .titlebar-controls {
+    display: flex;
+    gap: 8px;
+    -webkit-app-region: no-drag;
+  }
+
+  .titlebar-btn {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+  }
+
+  .btn-close { background: #ff5f57; }
+  .btn-minimize { background: #ffbd2e; }
+  .btn-maximize { background: #28c840; }
+
+  /* Toolbar */
+  .toolbar {
+    background: #16162b;
+    padding: 8px 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border-bottom: 1px solid #2a2a4a;
+  }
+
+  .toolbar-btn {
+    background: #2a2a4a;
+    border: 1px solid #3a3a5a;
+    color: #c0c0e0;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 12px;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+
+  .toolbar-btn:hover {
+    background: #3a3a5a;
+  }
+
+  .toolbar-separator {
+    width: 1px;
+    height: 24px;
+    background: #2a2a4a;
+  }
+
+  .toolbar-label {
+    font-size: 12px;
+    color: #8080a0;
+  }
+
+  /* Main Content */
+  .main-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 16px;
+    gap: 16px;
+    overflow: hidden;
+  }
+
+  /* Input Section - Top */
+  .input-section {
+    background: #16162b;
+    border: 1px solid #2a2a4a;
+    border-radius: 12px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .input-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .input-header-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .input-label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #a0a0c0;
+  }
+
+  .select-box {
+    background: #2a2a4a;
+    border: 1px solid #3a3a5a;
+    color: #c0c0e0;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 13px;
+    cursor: pointer;
+    outline: none;
+  }
+
+  .select-box:focus {
+    border-color: #6c63ff;
+  }
+
+  /* Mode Tabs */
+  .mode-tabs {
+    display: flex;
+    gap: 0;
+    margin-bottom: 4px;
+  }
+
+  .mode-tab {
+    background: #1a1a30;
+    border: 1px solid #2a2a4a;
+    color: #6a6a8a;
+    padding: 8px 20px;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .mode-tab:first-child {
+    border-radius: 8px 0 0 8px;
+  }
+
+  .mode-tab:last-child {
+    border-radius: 0 8px 8px 0;
+  }
+
+  .mode-tab.active {
+    background: #6c63ff;
+    border-color: #6c63ff;
+    color: white;
+  }
+
+  .mode-tab:not(.active):hover {
+    background: #2a2a4a;
+    color: #c0c0e0;
+  }
+
+  /* Input Body - Single column (Write mode) */
+  .input-body-single {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  /* Input Body - Two columns (Generate mode) */
+  .input-body-dual {
+    display: none;
+    gap: 16px;
+  }
+
+  .input-body-dual.active {
+    display: flex;
+  }
+
+  .input-body-single.active {
+    display: flex;
+  }
+
+  .input-body-single:not(.active) {
+    display: none;
+  }
+
+  .input-col {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .input-col-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .input-col-label {
+    font-size: 12px;
+    font-weight: 600;
+    color: #8080a0;
+  }
+
+  .input-area {
+    background: #0f0f1a;
+    border: 1px solid #2a2a4a;
+    border-radius: 8px;
+    padding: 12px;
+    color: #e0e0e0;
+    font-size: 14px;
+    line-height: 1.6;
+    resize: none;
+    height: 120px;
+    outline: none;
+    font-family: inherit;
+  }
+
+  .input-area:focus {
+    border-color: #6c63ff;
+  }
+
+  .input-area::placeholder {
+    color: #4a4a6a;
+  }
+
+  .input-area.generated {
+    background: #0f1a14;
+    border-color: #1a3a2a;
+    color: #c0e0c0;
+  }
+
+  .arrow-divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    color: #6c63ff;
+    padding: 0 8px;
+    align-self: center;
+  }
+
+  .input-actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .input-actions-left {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .char-count {
+    font-size: 12px;
+    color: #6a6a8a;
+  }
+
+  .btn-optimize {
+    background: linear-gradient(135deg, #6c63ff, #4834d4);
+    border: none;
+    color: white;
+    padding: 10px 24px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: opacity 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .btn-optimize:hover {
+    opacity: 0.9;
+  }
+
+  .btn-send-all {
+    background: linear-gradient(135deg, #28c840, #1fa834);
+    border: none;
+    color: white;
+    padding: 10px 24px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: opacity 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .btn-send-all:hover {
+    opacity: 0.9;
+  }
+
+  .btn-generate {
+    background: linear-gradient(135deg, #ff9f43, #ee5a24);
+    border: none;
+    color: white;
+    padding: 10px 24px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: opacity 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .btn-generate:hover {
+    opacity: 0.9;
+  }
+
+  /* Output Section - Bottom */
+  .output-section {
+    flex: 1;
+    display: flex;
+    gap: 16px;
+    overflow: hidden;
+  }
+
+  .output-panel {
+    flex: 1;
+    background: #16162b;
+    border: 1px solid #2a2a4a;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    cursor: grab;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+
+  .output-panel.dragging {
+    opacity: 0.5;
+    border-color: #6c63ff;
+  }
+
+  .output-panel.drag-over {
+    border-color: #6c63ff;
+    box-shadow: 0 0 12px rgba(108, 99, 255, 0.3);
+  }
+
+  .panel-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 16px;
+    border-bottom: 1px solid #2a2a4a;
+    background: #1a1a30;
+  }
+
+  .panel-header-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .drag-handle {
+    color: #4a4a6a;
+    cursor: grab;
+    font-size: 16px;
+    user-select: none;
+  }
+
+  .drag-handle:active {
+    cursor: grabbing;
+  }
+
+  .ai-icon {
+    width: 24px;
+    height: 24px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: 700;
+  }
+
+  .ai-icon.openai { background: #10a37f; color: white; }
+  .ai-icon.anthropic { background: #d97757; color: white; }
+  .ai-icon.google { background: #4285f4; color: white; }
+
+  .panel-select {
+    background: #2a2a4a;
+    border: 1px solid #3a3a5a;
+    color: #c0c0e0;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    cursor: pointer;
+    outline: none;
+  }
+
+  .panel-model {
+    font-size: 11px;
+    color: #6a6a8a;
+    padding: 0 16px 0 0;
+  }
+
+  .panel-actions {
+    display: flex;
+    gap: 6px;
+  }
+
+  .panel-action-btn {
+    background: #2a2a4a;
+    border: 1px solid #3a3a5a;
+    color: #8080a0;
+    width: 28px;
+    height: 28px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s;
+  }
+
+  .panel-action-btn:hover {
+    background: #3a3a5a;
+    color: #c0c0e0;
+  }
+
+  .panel-content {
+    flex: 1;
+    padding: 16px;
+    overflow-y: auto;
+    font-size: 14px;
+    line-height: 1.7;
+    color: #c0c0e0;
+  }
+
+  .panel-content p {
+    margin-bottom: 12px;
+  }
+
+  .panel-content code {
+    background: #0f0f1a;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 13px;
+    color: #6c63ff;
+  }
+
+  .panel-footer {
+    padding: 8px 16px;
+    border-top: 1px solid #2a2a4a;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 11px;
+    color: #4a4a6a;
+  }
+
+  .panel-status {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .status-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #28c840;
+  }
+
+  .status-dot.loading {
+    background: #ffbd2e;
+    animation: pulse 1s infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+  }
+
+  /* Status Bar */
+  .statusbar {
+    background: #0f0f1a;
+    padding: 4px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1px solid #2a2a4a;
+    font-size: 11px;
+    color: #4a4a6a;
+  }
+
+  .statusbar-left, .statusbar-right {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  /* Scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #2a2a4a;
+    border-radius: 3px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #3a3a5a;
+  }
+</style>
+</head>
+<body>
+
+<!-- Title Bar -->
+<div class="titlebar">
+  <div class="titlebar-controls">
+    <button class="titlebar-btn btn-close"></button>
+    <button class="titlebar-btn btn-minimize"></button>
+    <button class="titlebar-btn btn-maximize"></button>
+  </div>
+  <div class="titlebar-title">ai2ia v1.0.0</div>
+  <div style="width: 52px;"></div>
+</div>
+
+<!-- Toolbar -->
+<div class="toolbar">
+  <button class="toolbar-btn">&#9881; Settings</button>
+  <button class="toolbar-btn">&#128273; License</button>
+  <div class="toolbar-separator"></div>
+  <button class="toolbar-btn">&#128196; History</button>
+  <button class="toolbar-btn">&#128230; Templates</button>
+  <div class="toolbar-separator"></div>
+  <span class="toolbar-label">Layout:</span>
+  <select class="select-box" id="layoutSelect">
+    <option value="3">3 Columns</option>
+    <option value="2">2 Columns</option>
+    <option value="4">4 Columns</option>
+  </select>
+</div>
+
+<!-- Main Content -->
+<div class="main-content">
+
+  <!-- Input Section (Top - Full Width) -->
+  <div class="input-section">
+    <div class="input-header">
+      <div class="input-header-left">
+        <!-- Mode Toggle Tabs -->
+        <div class="mode-tabs">
+          <button class="mode-tab active" data-mode="write">Write Prompt</button>
+          <button class="mode-tab" data-mode="generate">AI Generate</button>
+        </div>
+        <select class="select-box" id="outputTarget">
+          <option value="all">Send to All</option>
+          <option value="openai">OpenAI only</option>
+          <option value="anthropic">Anthropic only</option>
+          <option value="google">Google only</option>
+        </select>
+      </div>
+      <div style="display: flex; gap: 8px; align-items: center;">
+        <select class="select-box" id="optimizeModel">
+          <option value="auto">Optimize with: Auto</option>
+          <option value="gpt4">Optimize with: GPT-4</option>
+          <option value="claude">Optimize with: Claude</option>
+          <option value="gemini">Optimize with: Gemini</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Write Mode: Single full-width textarea -->
+    <div class="input-body-single active" id="writeMode">
+      <textarea class="input-area" id="writeArea" placeholder="Enter your prompt here... ai2ia will optimize it for each AI model.">Write a Python function that efficiently finds all prime numbers up to a given limit. Include error handling and type hints.</textarea>
+      <div class="input-actions">
+        <div class="input-actions-left">
+          <span class="char-count" id="writeCharCount">98 characters</span>
+        </div>
+        <div style="display: flex; gap: 8px;">
+          <button class="btn-optimize">&#10024; Optimize &amp; Send</button>
+          <button class="btn-send-all">&#9654; Send Raw</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Generate Mode: Two-column layout -->
+    <div class="input-body-dual" id="generateMode">
+      <div class="input-col">
+        <div class="input-col-header">
+          <span class="input-col-label">Your Idea / Rough Input</span>
+          <select class="select-box" id="generateAI">
+            <option value="auto">Generate with: Auto</option>
+            <option value="gpt4">Generate with: GPT-4</option>
+            <option value="claude">Generate with: Claude</option>
+            <option value="gemini">Generate with: Gemini</option>
+          </select>
+        </div>
+        <textarea class="input-area" id="roughArea" placeholder="Describe what you want roughly... e.g. 'Python function for prime numbers, make it fast'">Python function for prime numbers, make it fast and clean</textarea>
+      </div>
+      <div class="arrow-divider">&#10132;</div>
+      <div class="input-col">
+        <div class="input-col-header">
+          <span class="input-col-label">AI-Generated Prompt</span>
+          <span class="input-col-label" style="font-weight: 400; color: #4a6a4a;">Editable</span>
+        </div>
+        <textarea class="input-area generated" id="generatedArea" placeholder="AI-generated prompt will appear here...">Write a Python function that efficiently finds all prime numbers up to a given limit using the Sieve of Eratosthenes algorithm. Include comprehensive error handling with appropriate exception types, full PEP 484 type hints, a detailed docstring with usage examples, and optimize for both time and space complexity.</textarea>
+      </div>
+    </div>
+
+    <!-- Generate Mode Actions -->
+    <div class="input-actions" id="generateActions" style="display: none;">
+      <div class="input-actions-left">
+        <span class="char-count" id="genCharCount">56 characters (input) / 298 characters (generated)</span>
+      </div>
+      <div style="display: flex; gap: 8px;">
+        <button class="btn-generate">&#9998; Generate Prompt</button>
+        <button class="btn-optimize">&#10024; Optimize &amp; Send</button>
+        <button class="btn-send-all">&#9654; Send Generated</button>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Output Section (Bottom - 3 Columns) -->
+  <div class="output-section" id="outputSection">
+
+    <!-- OpenAI Panel -->
+    <div class="output-panel" draggable="true" data-panel="openai">
+      <div class="panel-header">
+        <div class="panel-header-left">
+          <span class="drag-handle" title="Drag to reorder">&#9776;</span>
+          <div class="ai-icon openai">O</div>
+          <select class="panel-select">
+            <option selected>OpenAI</option>
+            <option>Anthropic</option>
+            <option>Google</option>
+          </select>
+        </div>
+        <div style="display: flex; align-items: center; gap: 8px;">
+          <span class="panel-model">gpt-4o</span>
+          <div class="panel-actions">
+            <button class="panel-action-btn" title="Copy">&#128203;</button>
+            <button class="panel-action-btn" title="Expand">&#9634;</button>
+          </div>
+        </div>
+      </div>
+      <div class="panel-content">
+        <p>Here's an optimized Python function using the Sieve of Eratosthenes algorithm:</p>
+        <p><code>def find_primes(limit: int) -> list[int]:</code></p>
+        <p>The function uses a boolean array to efficiently mark non-prime numbers, achieving O(n log log n) time complexity.</p>
+        <p>Key features:</p>
+        <p>- Type hints for input and output</p>
+        <p>- ValueError for invalid inputs</p>
+        <p>- Memory-efficient boolean sieve</p>
+        <p>- Optimized to start marking from p*p</p>
+      </div>
+      <div class="panel-footer">
+        <div class="panel-status">
+          <div class="status-dot"></div>
+          <span>Completed in 1.2s</span>
+        </div>
+        <span>Tokens: 284</span>
+      </div>
+    </div>
+
+    <!-- Anthropic Panel -->
+    <div class="output-panel" draggable="true" data-panel="anthropic">
+      <div class="panel-header">
+        <div class="panel-header-left">
+          <span class="drag-handle" title="Drag to reorder">&#9776;</span>
+          <div class="ai-icon anthropic">A</div>
+          <select class="panel-select">
+            <option>OpenAI</option>
+            <option selected>Anthropic</option>
+            <option>Google</option>
+          </select>
+        </div>
+        <div style="display: flex; align-items: center; gap: 8px;">
+          <span class="panel-model">claude-sonnet-4-6</span>
+          <div class="panel-actions">
+            <button class="panel-action-btn" title="Copy">&#128203;</button>
+            <button class="panel-action-btn" title="Expand">&#9634;</button>
+          </div>
+        </div>
+      </div>
+      <div class="panel-content">
+        <p>I'll create a well-structured prime number finder with proper error handling:</p>
+        <p><code>def find_primes(limit: int) -> list[int]:</code></p>
+        <p>This implementation uses the Sieve of Eratosthenes with several optimizations:</p>
+        <p>1. Input validation with descriptive error messages</p>
+        <p>2. Skip even numbers after 2 for ~50% speed improvement</p>
+        <p>3. Uses <code>bytearray</code> instead of list for memory efficiency</p>
+        <p>4. Includes comprehensive docstring with examples</p>
+      </div>
+      <div class="panel-footer">
+        <div class="panel-status">
+          <div class="status-dot loading"></div>
+          <span>Generating...</span>
+        </div>
+        <span>Tokens: 312...</span>
+      </div>
+    </div>
+
+    <!-- Google Panel -->
+    <div class="output-panel" draggable="true" data-panel="google">
+      <div class="panel-header">
+        <div class="panel-header-left">
+          <span class="drag-handle" title="Drag to reorder">&#9776;</span>
+          <div class="ai-icon google">G</div>
+          <select class="panel-select">
+            <option>OpenAI</option>
+            <option>Anthropic</option>
+            <option selected>Google</option>
+          </select>
+        </div>
+        <div style="display: flex; align-items: center; gap: 8px;">
+          <span class="panel-model">gemini-2.0-flash</span>
+          <div class="panel-actions">
+            <button class="panel-action-btn" title="Copy">&#128203;</button>
+            <button class="panel-action-btn" title="Expand">&#9634;</button>
+          </div>
+        </div>
+      </div>
+      <div class="panel-content">
+        <p>Here's a comprehensive solution for finding prime numbers:</p>
+        <p><code>def find_primes(limit: int) -> list[int]:</code></p>
+        <p>The implementation leverages the classic Sieve of Eratosthenes with modern Python practices:</p>
+        <p>- Full type annotations (PEP 484)</p>
+        <p>- Raises TypeError and ValueError as appropriate</p>
+        <p>- Generator-based variant included for large ranges</p>
+        <p>- Unit test examples in docstring</p>
+      </div>
+      <div class="panel-footer">
+        <div class="panel-status">
+          <div class="status-dot"></div>
+          <span>Completed in 0.8s</span>
+        </div>
+        <span>Tokens: 256</span>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Status Bar -->
+<div class="statusbar">
+  <div class="statusbar-left">
+    <span>ai2ia v1.0.0</span>
+    <span>|</span>
+    <span>Licensed: Pro</span>
+  </div>
+  <div class="statusbar-right">
+    <span>API Status: All Connected</span>
+    <span>|</span>
+    <span>Total Tokens: 852</span>
+  </div>
+</div>
+
+<script>
+  // Mode Tab Switching
+  const modeTabs = document.querySelectorAll('.mode-tab');
+  const writeMode = document.getElementById('writeMode');
+  const generateMode = document.getElementById('generateMode');
+  const generateActions = document.getElementById('generateActions');
+
+  modeTabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      modeTabs.forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+
+      const mode = tab.dataset.mode;
+      if (mode === 'write') {
+        writeMode.classList.add('active');
+        generateMode.classList.remove('active');
+        generateActions.style.display = 'none';
+      } else {
+        writeMode.classList.remove('active');
+        generateMode.classList.add('active');
+        generateActions.style.display = 'flex';
+      }
+    });
+  });
+
+  // Drag and Drop for output panels
+  const outputSection = document.getElementById('outputSection');
+  let draggedPanel = null;
+
+  document.querySelectorAll('.output-panel').forEach(panel => {
+    panel.addEventListener('dragstart', (e) => {
+      draggedPanel = panel;
+      panel.classList.add('dragging');
+      e.dataTransfer.effectAllowed = 'move';
+    });
+
+    panel.addEventListener('dragend', () => {
+      panel.classList.remove('dragging');
+      document.querySelectorAll('.output-panel').forEach(p => {
+        p.classList.remove('drag-over');
+      });
+      draggedPanel = null;
+    });
+
+    panel.addEventListener('dragover', (e) => {
+      e.preventDefault();
+      e.dataTransfer.dropEffect = 'move';
+      if (panel !== draggedPanel) {
+        panel.classList.add('drag-over');
+      }
+    });
+
+    panel.addEventListener('dragleave', () => {
+      panel.classList.remove('drag-over');
+    });
+
+    panel.addEventListener('drop', (e) => {
+      e.preventDefault();
+      panel.classList.remove('drag-over');
+      if (draggedPanel && draggedPanel !== panel) {
+        const allPanels = [...outputSection.children];
+        const draggedIdx = allPanels.indexOf(draggedPanel);
+        const targetIdx = allPanels.indexOf(panel);
+
+        if (draggedIdx < targetIdx) {
+          outputSection.insertBefore(draggedPanel, panel.nextSibling);
+        } else {
+          outputSection.insertBefore(draggedPanel, panel);
+        }
+      }
+    });
+  });
+
+  // Character count - Write mode
+  const writeArea = document.getElementById('writeArea');
+  const writeCharCount = document.getElementById('writeCharCount');
+  writeArea.addEventListener('input', () => {
+    writeCharCount.textContent = `${writeArea.value.length} characters`;
+  });
+
+  // Character count - Generate mode
+  const roughArea = document.getElementById('roughArea');
+  const generatedArea = document.getElementById('generatedArea');
+  const genCharCount = document.getElementById('genCharCount');
+
+  function updateGenCharCount() {
+    genCharCount.textContent = `${roughArea.value.length} characters (input) / ${generatedArea.value.length} characters (generated)`;
+  }
+
+  roughArea.addEventListener('input', updateGenCharCount);
+  generatedArea.addEventListener('input', updateGenCharCount);
+
+  // Layout column change
+  const layoutSelect = document.getElementById('layoutSelect');
+  layoutSelect.addEventListener('change', (e) => {
+    const cols = parseInt(e.target.value);
+    const panels = document.querySelectorAll('.output-panel');
+    panels.forEach((panel, i) => {
+      panel.style.display = i < cols ? 'flex' : 'none';
+    });
+  });
+</script>
+
+</body>
+</html>

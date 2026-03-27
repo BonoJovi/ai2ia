@@ -1,0 +1,43 @@
+/* ============================================
+   RTL (Right-to-Left) Overrides
+
+   Note: With dir="rtl", flex-direction: row
+   automatically flows right-to-left.
+   Do NOT add flex-direction: row-reverse
+   as it would double-reverse back to LTR.
+   ============================================ */
+
+[dir="rtl"] {
+  direction: rtl;
+  text-align: right;
+}
+
+/* Toolbar: push lang select to the left side in RTL */
+[dir="rtl"] .lang-select {
+  margin-left: 0;
+  margin-right: auto;
+}
+
+/* Mode Tabs: swap border-radius */
+[dir="rtl"] .mode-tab:first-child {
+  border-radius: 0 8px 8px 0;
+}
+
+[dir="rtl"] .mode-tab:last-child {
+  border-radius: 8px 0 0 8px;
+}
+
+/* Generate Mode: mirror the arrow */
+[dir="rtl"] .arrow-divider {
+  transform: scaleX(-1);
+}
+
+/* Textarea */
+[dir="rtl"] .input-area {
+  text-align: right;
+}
+
+/* Panel Content */
+[dir="rtl"] .panel-content {
+  text-align: right;
+}
