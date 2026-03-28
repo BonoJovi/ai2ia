@@ -11,7 +11,7 @@
 
 </div>
 
-ai2ia ist eine Desktop-Anwendung, mit der Sie Prompts schreiben, sie für verschiedene KI-Modelle optimieren und die Antworten nebeneinander vergleichen können. Entwickelt mit [Tauri 2](https://tauri.app/) (Rust + HTML/CSS/JS).
+Schreiben Sie Ihre Idee, lassen Sie die KI daraus den perfekten Prompt erstellen und senden Sie ihn gleichzeitig an mehrere KI-Modelle — vergleichen Sie die Antworten nebeneinander und wählen Sie die beste! Entwickelt mit [Tauri 2](https://tauri.app/) (Rust + HTML/CSS/JS).
 
 ## Funktionen
 

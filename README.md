@@ -13,7 +13,7 @@
 
 </div>
 
-ai2ia is a desktop application that lets you write prompts, optimize them for different AI models, and compare responses side-by-side. Built with [Tauri 2](https://tauri.app/) (Rust + HTML/CSS/JS).
+Write your idea, let AI optimize it into a perfect prompt, then fire it at multiple AI models at once — compare their answers side by side and pick the best. Built with [Tauri 2](https://tauri.app/) (Rust + HTML/CSS/JS).
 
 <!-- STATS_START -->
 ## 📊 Repository Statistics

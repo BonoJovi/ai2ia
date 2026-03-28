@@ -11,7 +11,7 @@
 
 </div>
 
-ai2ia est une application de bureau qui vous permet de rédiger des prompts, de les optimiser pour différents modèles d'IA et de comparer les réponses côte à côte. Construit avec [Tauri 2](https://tauri.app/) (Rust + HTML/CSS/JS).
+Écrivez votre idée, laissez l'IA l'optimiser en un prompt parfait, puis envoyez-le à plusieurs modèles d'IA en même temps — comparez leurs réponses côte à côte et choisissez la meilleure ! Construit avec [Tauri 2](https://tauri.app/) (Rust + HTML/CSS/JS).
 
 ## Fonctionnalités
 
