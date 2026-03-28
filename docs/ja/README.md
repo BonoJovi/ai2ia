@@ -15,16 +15,35 @@
 
 </div>
 
-## 機能
+---
 
-- **マルチAI比較** - OpenAI、Anthropic、Google AI、xAIに同時にプロンプトを送信し、並列パネルでレスポンスを比較
+## 開発者からのメッセージ
+
+<div style="border: 3px solid #4a90e2; padding: 20px; margin: 20px 0; background-color: #f8f9fa; font-size: 1.1em;">
+
+### ai2iaユーザの皆さんへ
+
+ai2iaに関心を寄せていただき、ありがとうございます。
+プロジェクト発案者のBonoJovi(Yoshihiro NAKAHARA)です。
+
+**🎉 v2.0.0 をリリースいたしました！全機能が無料でご利用いただけます。**
+
+**主な機能**:
+- **マルチAI比較** - OpenAI、Anthropic、Google AI、xAIに同時送信し、レスポンスを並列パネルで比較
 - **プロンプト最適化** - 送信前に各AIモデル向けにプロンプトを自動最適化
-- **AIプロンプト生成** - アイデアをざっくり記述するだけで、AIが洗練されたプロンプトを生成
+- **AIプロンプト生成** - アイデアをざっくり書くだけで、AIが洗練されたプロンプトを生成
 - **ドラッグ＆ドロップ** - AIレスポンスパネルをドラッグで並べ替え
 - **柔軟なレイアウト** - 2列、3列、4列レイアウトを切り替え
 - **7言語対応** - 英語、日本語、フランス語、イタリア語、ドイツ語、ロシア語、アラビア語（RTL対応含む）
 - **ダーク/ライトテーマ** - ダークモードとライトモードの切り替え
 - **安全なAPIキー管理** - APIキーはローカルシステムに安全に保存
+
+**[Announcement] フィードバックをお待ちしています！**
+- [Issues](https://github.com/BonoJovi/ai2ia/issues) または [Discussions](https://github.com/BonoJovi/ai2ia/discussions) でご意見をお寄せください！
+
+**2026-03-28 (JST) Written by Yoshihiro NAKAHARA**
+
+</div>
 
 ## 対応AIプロバイダー
 
