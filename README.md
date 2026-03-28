@@ -8,6 +8,31 @@ ai2ia is a desktop application that lets you write prompts, optimize them for di
 
 **Version: 2.0.0**
 
+<!-- STATS_START -->
+## 📊 Repository Statistics
+
+<div align="center">
+
+### 📈 Daily Traffic
+
+![Daily Traffic Stats](docs/stats_graph_daily.png)
+
+### 📊 Cumulative Traffic
+
+![Cumulative Traffic Stats](docs/stats_graph_cumulative.png)
+
+| Metric | Count |
+|--------|-------|
+| 👁️ **Total Views** | **0** |
+| 📦 **Total Clones** | **0** |
+
+*Last Updated: 2026-03-28 06:24 UTC*
+
+</div>
+<!-- STATS_END -->
+
+---
+
 ## Features
 
 - **Multi-AI Comparison** - Send prompts to OpenAI, Anthropic, Google AI, and xAI simultaneously and compare responses in parallel panels
