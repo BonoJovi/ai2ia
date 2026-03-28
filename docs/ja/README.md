@@ -9,9 +9,11 @@
 [![Tauri](https://img.shields.io/badge/Tauri-v2-blue.svg)](https://tauri.app/)
 [![License](https://img.shields.io/badge/License-MIT-green)](../../LICENSE)
 
-</div>
+**アイデアを書くだけでAIが最適なプロンプトに仕上げ、複数のAIモデルに一斉送信 —**
 
-アイデアを書くだけでAIが最適なプロンプトに仕上げ、複数のAIモデルに一斉送信 — レスポンスを並べて比較し、ベストな回答を見つけよう！ [Tauri 2](https://tauri.app/)（Rust + HTML/CSS/JS）で構築。
+**レスポンスを並べて比較し、ベストな回答を見つけよう！**
+
+</div>
 
 ## 機能
 

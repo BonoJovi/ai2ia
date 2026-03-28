@@ -9,9 +9,11 @@
 [![Tauri](https://img.shields.io/badge/Tauri-v2-blue.svg)](https://tauri.app/)
 [![License](https://img.shields.io/badge/License-MIT-green)](../../LICENSE)
 
-</div>
+**Écrivez votre idée, laissez l'IA l'optimiser en un prompt parfait, puis envoyez-le à plusieurs modèles d'IA en même temps —**
 
-Écrivez votre idée, laissez l'IA l'optimiser en un prompt parfait, puis envoyez-le à plusieurs modèles d'IA en même temps — comparez leurs réponses côte à côte et choisissez la meilleure ! Construit avec [Tauri 2](https://tauri.app/) (Rust + HTML/CSS/JS).
+**comparez leurs réponses côte à côte et choisissez la meilleure !**
+
+</div>
 
 ## Fonctionnalités
 

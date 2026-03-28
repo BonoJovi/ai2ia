@@ -11,9 +11,11 @@
 [![Tauri](https://img.shields.io/badge/Tauri-v2-blue.svg)](https://tauri.app/)
 [![License](https://img.shields.io/badge/License-MIT-green)](LICENSE)
 
-</div>
+**Write your idea, let AI optimize it into a perfect prompt, then fire it at multiple AI models at once —**
 
-Write your idea, let AI optimize it into a perfect prompt, then fire it at multiple AI models at once — compare their answers side by side and pick the best. Built with [Tauri 2](https://tauri.app/) (Rust + HTML/CSS/JS).
+**compare their answers side by side and pick the best!**
+
+</div>
 
 <!-- STATS_START -->
 ## 📊 Repository Statistics

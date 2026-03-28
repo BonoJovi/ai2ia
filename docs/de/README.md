@@ -9,9 +9,11 @@
 [![Tauri](https://img.shields.io/badge/Tauri-v2-blue.svg)](https://tauri.app/)
 [![License](https://img.shields.io/badge/License-MIT-green)](../../LICENSE)
 
-</div>
+**Schreiben Sie Ihre Idee, lassen Sie die KI daraus den perfekten Prompt erstellen und senden Sie ihn gleichzeitig an mehrere KI-Modelle —**
 
-Schreiben Sie Ihre Idee, lassen Sie die KI daraus den perfekten Prompt erstellen und senden Sie ihn gleichzeitig an mehrere KI-Modelle — vergleichen Sie die Antworten nebeneinander und wählen Sie die beste! Entwickelt mit [Tauri 2](https://tauri.app/) (Rust + HTML/CSS/JS).
+**vergleichen Sie die Antworten nebeneinander und wählen Sie die beste!**
+
+</div>
 
 ## Funktionen
 
