@@ -2,7 +2,7 @@
 
 <div align="center">
 
-> **Outil d'optimisation de prompts et de comparaison parallèle de réponses IA**
+**Outil d'optimisation de prompts et de comparaison parallèle de réponses IA**
 
 [![Version](https://img.shields.io/badge/Version-2.0.0-blue)](https://github.com/BonoJovi/ai2ia/releases)
 [![Rust](https://img.shields.io/badge/Rust-1.70+-orange.svg)](https://www.rust-lang.org/)

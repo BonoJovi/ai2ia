@@ -2,7 +2,7 @@
 
 <div align="center">
 
-> **Werkzeug zur Prompt-Optimierung und parallelen Vergleich von KI-Antworten**
+**Werkzeug zur Prompt-Optimierung und parallelen Vergleich von KI-Antworten**
 
 [![Version](https://img.shields.io/badge/Version-2.0.0-blue)](https://github.com/BonoJovi/ai2ia/releases)
 [![Rust](https://img.shields.io/badge/Rust-1.70+-orange.svg)](https://www.rust-lang.org/)

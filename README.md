@@ -4,7 +4,7 @@
 
 [JA](docs/ja/README.md) | [FR](docs/fr/README.md) | [IT](docs/it/README.md) | [DE](docs/de/README.md) | [RU](docs/ru/README.md) | [AR](docs/ar/README.md)
 
-> **Prompt optimization and parallel AI response comparison tool**
+**Prompt optimization and parallel AI response comparison tool**
 
 [![Version](https://img.shields.io/badge/Version-2.0.0-blue)](https://github.com/BonoJovi/ai2ia/releases)
 [![Rust](https://img.shields.io/badge/Rust-1.70+-orange.svg)](https://www.rust-lang.org/)

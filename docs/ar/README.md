@@ -2,7 +2,7 @@
 
 <div align="center">
 
-> **أداة لتحسين البرومبتات ومقارنة استجابات الذكاء الاصطناعي بالتوازي**
+**أداة لتحسين البرومبتات ومقارنة استجابات الذكاء الاصطناعي بالتوازي**
 
 [![Version](https://img.shields.io/badge/Version-2.0.0-blue)](https://github.com/BonoJovi/ai2ia/releases)
 [![Rust](https://img.shields.io/badge/Rust-1.70+-orange.svg)](https://www.rust-lang.org/)
