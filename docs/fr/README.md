@@ -15,8 +15,20 @@
 
 </div>
 
-## Fonctionnalités
+---
 
+## Message du développeur
+
+<div style="border: 3px solid #4a90e2; padding: 20px; margin: 20px 0; background-color: #f8f9fa; font-size: 1.1em;">
+
+### Aux utilisateurs d'ai2ia
+
+Merci de votre intérêt pour ai2ia.
+Je suis BonoJovi (Yoshihiro NAKAHARA), l'initiateur du projet.
+
+**🎉 Nous avons publié la v2.0.0 ! Toutes les fonctionnalités sont désormais gratuites.**
+
+**Fonctionnalités principales** :
 - **Comparaison multi-IA** - Envoyez des prompts à OpenAI, Anthropic, Google AI et xAI simultanément et comparez les réponses dans des panneaux parallèles
 - **Optimisation de prompts** - Optimisez automatiquement vos prompts pour chaque modèle d'IA avant l'envoi
 - **Génération de prompts par IA** - Décrivez votre idée approximativement et laissez l'IA générer un prompt élaboré
@@ -25,6 +37,13 @@
 - **7 langues** - Anglais, japonais, français, italien, allemand, russe, arabe (support RTL inclus)
 - **Thème sombre/clair** - Basculez entre le mode sombre et clair
 - **Stockage sécurisé des clés API** - Les clés API sont stockées localement sur votre système
+
+**[Announcement] Vos retours sont les bienvenus !**
+- Partagez vos idées sur [Issues](https://github.com/BonoJovi/ai2ia/issues) ou [Discussions](https://github.com/BonoJovi/ai2ia/discussions) !
+
+**2026-03-28 (JST) Written by Yoshihiro NAKAHARA**
+
+</div>
 
 ## Fournisseurs d'IA supportés
 
