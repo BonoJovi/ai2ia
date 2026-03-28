@@ -1,10 +1,17 @@
 # ai2ia - AI to instruct AI
 
-> Strumento di ottimizzazione dei prompt e confronto parallelo delle risposte IA
+<div align="center">
+
+> **Strumento di ottimizzazione dei prompt e confronto parallelo delle risposte IA**
+
+[![Version](https://img.shields.io/badge/Version-2.0.0-blue)](https://github.com/BonoJovi/ai2ia/releases)
+[![Rust](https://img.shields.io/badge/Rust-1.70+-orange.svg)](https://www.rust-lang.org/)
+[![Tauri](https://img.shields.io/badge/Tauri-v2-blue.svg)](https://tauri.app/)
+[![License](https://img.shields.io/badge/License-MIT-green)](../../LICENSE)
+
+</div>
 
 ai2ia è un'applicazione desktop che ti permette di scrivere prompt, ottimizzarli per diversi modelli di IA e confrontare le risposte affiancate. Costruito con [Tauri 2](https://tauri.app/) (Rust + HTML/CSS/JS).
-
-**Versione: 2.0.0**
 
 ## Funzionalità
 

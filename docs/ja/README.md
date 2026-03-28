@@ -1,10 +1,17 @@
 # ai2ia - AI to instruct AI
 
-> プロンプト最適化と複数AIレスポンス並列比較ツール
+<div align="center">
+
+> **プロンプト最適化と複数AIレスポンス並列比較ツール**
+
+[![Version](https://img.shields.io/badge/Version-2.0.0-blue)](https://github.com/BonoJovi/ai2ia/releases)
+[![Rust](https://img.shields.io/badge/Rust-1.70+-orange.svg)](https://www.rust-lang.org/)
+[![Tauri](https://img.shields.io/badge/Tauri-v2-blue.svg)](https://tauri.app/)
+[![License](https://img.shields.io/badge/License-MIT-green)](../../LICENSE)
+
+</div>
 
 ai2iaは、プロンプトの作成・最適化を行い、複数のAIモデルからのレスポンスを並べて比較できるデスクトップアプリケーションです。[Tauri 2](https://tauri.app/)（Rust + HTML/CSS/JS）で構築されています。
-
-**バージョン: 2.0.0**
 
 ## 機能
 

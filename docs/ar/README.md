@@ -1,10 +1,17 @@
 # ai2ia - AI to instruct AI
 
-> أداة لتحسين البرومبتات ومقارنة استجابات الذكاء الاصطناعي بالتوازي
+<div align="center">
+
+> **أداة لتحسين البرومبتات ومقارنة استجابات الذكاء الاصطناعي بالتوازي**
+
+[![Version](https://img.shields.io/badge/Version-2.0.0-blue)](https://github.com/BonoJovi/ai2ia/releases)
+[![Rust](https://img.shields.io/badge/Rust-1.70+-orange.svg)](https://www.rust-lang.org/)
+[![Tauri](https://img.shields.io/badge/Tauri-v2-blue.svg)](https://tauri.app/)
+[![License](https://img.shields.io/badge/License-MIT-green)](../../LICENSE)
+
+</div>
 
 ai2ia هو تطبيق سطح مكتب يتيح لك كتابة البرومبتات وتحسينها لنماذج الذكاء الاصطناعي المختلفة ومقارنة الاستجابات جنبًا إلى جنب. مبني باستخدام [Tauri 2](https://tauri.app/) (Rust + HTML/CSS/JS).
-
-**الإصدار: 2.0.0**
 
 ## الميزات
 
