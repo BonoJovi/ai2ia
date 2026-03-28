@@ -17,6 +17,60 @@
 
 </div>
 
+---
+
+## Message from Developer / 開発者からのメッセージ
+
+<div style="border: 3px solid #4a90e2; padding: 20px; margin: 20px 0; background-color: #f8f9fa; font-size: 1.1em;">
+
+### ai2iaユーザの皆さんへ
+
+ai2iaに関心を寄せていただき、ありがとうございます。
+プロジェクト発案者のBonoJovi(Yoshihiro NAKAHARA)です。
+
+**🎉 v2.0.0 をリリースいたしました！全機能が無料でご利用いただけます。**
+
+**主な機能**:
+- **マルチAI比較** - OpenAI、Anthropic、Google AI、xAIに同時送信し、レスポンスを並列パネルで比較
+- **プロンプト最適化** - 送信前に各AIモデル向けにプロンプトを自動最適化
+- **AIプロンプト生成** - アイデアをざっくり書くだけで、AIが洗練されたプロンプトを生成
+- **ドラッグ＆ドロップ** - AIレスポンスパネルをドラッグで並べ替え
+- **柔軟なレイアウト** - 2列、3列、4列レイアウトを切り替え
+- **7言語対応** - 英語、日本語、フランス語、イタリア語、ドイツ語、ロシア語、アラビア語（RTL対応含む）
+- **ダーク/ライトテーマ** - ダークモードとライトモードの切り替え
+- **安全なAPIキー管理** - APIキーはローカルシステムに安全に保存
+
+**[Announcement] フィードバックをお待ちしています！**
+- [Issues](https://github.com/BonoJovi/ai2ia/issues) または [Discussions](https://github.com/BonoJovi/ai2ia/discussions) でご意見をお寄せください！
+
+**2026-03-28 (JST) Written by Yoshihiro NAKAHARA**
+
+---
+
+### To ai2ia Users
+
+Thank you for your interest in ai2ia.
+I'm BonoJovi (Yoshihiro NAKAHARA), the project initiator.
+
+**🎉 We have released v2.0.0! All features are now free to use.**
+
+**Key Features**:
+- **Multi-AI Comparison** - Send prompts to OpenAI, Anthropic, Google AI, and xAI simultaneously and compare responses in parallel panels
+- **Prompt Optimization** - Automatically optimize your prompts for each AI model before sending
+- **AI Prompt Generation** - Describe your idea roughly and let AI generate a polished prompt for you
+- **Drag & Drop Panels** - Rearrange AI response panels by dragging
+- **Flexible Layout** - Switch between 2, 3, or 4 column layouts
+- **7 Languages** - English, Japanese, French, Italian, German, Russian, Arabic (including RTL support)
+- **Dark/Light Theme** - Toggle between dark and light mode
+- **Secure API Key Storage** - API keys are stored locally on your system
+
+**[Announcement] We want to hear from you!**
+- Share your ideas on [Issues](https://github.com/BonoJovi/ai2ia/issues) or [Discussions](https://github.com/BonoJovi/ai2ia/discussions)!
+
+**2026-03-28 (JST) Written by Yoshihiro NAKAHARA**
+
+</div>
+
 <!-- STATS_START -->
 ## 📊 Repository Statistics
 
@@ -41,17 +95,6 @@
 <!-- STATS_END -->
 
 ---
-
-## Features
-
-- **Multi-AI Comparison** - Send prompts to OpenAI, Anthropic, Google AI, and xAI simultaneously and compare responses in parallel panels
-- **Prompt Optimization** - Automatically optimize your prompts for each AI model before sending
-- **AI Prompt Generation** - Describe your idea roughly and let AI generate a polished prompt for you
-- **Drag & Drop Panels** - Rearrange AI response panels by dragging
-- **Flexible Layout** - Switch between 2, 3, or 4 column layouts
-- **7 Languages** - English, Japanese, French, Italian, German, Russian, Arabic (including RTL support)
-- **Dark/Light Theme** - Toggle between dark and light mode
-- **Secure API Key Storage** - API keys are stored locally on your system
 
 ## Supported AI Providers
 

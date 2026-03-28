@@ -56,8 +56,8 @@ def update_readme(stats):
         pattern = r'<!-- STATS_START -->.*?<!-- STATS_END -->'
         content = re.sub(pattern, stats_section, content, flags=re.DOTALL)
     else:
-        # Insert before ## Features section
-        insert_marker = '## Features'
+        # Insert before ## Supported AI Providers section
+        insert_marker = '## Supported AI Providers'
         if insert_marker in content:
             content = content.replace(insert_marker, f'{stats_section}\n\n---\n\n{insert_marker}')
         else:
