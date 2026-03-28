@@ -9,7 +9,7 @@
 [![Tauri](https://img.shields.io/badge/Tauri-v2-blue.svg)](https://tauri.app/)
 [![License](https://img.shields.io/badge/License-MIT-green)](../../LICENSE)
 
-**アイデアを書くだけでAIが最適なプロンプトに仕上げ、複数のAIモデルに一斉送信 —**
+**アイデアを書くだけでAIが最適なプロンプトに仕上げ、複数のAIモデルに一斉送信！**
 
 **レスポンスを並べて比較し、ベストな回答を見つけよう！**
 
