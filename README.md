@@ -10,6 +10,7 @@
 [![Rust](https://img.shields.io/badge/Rust-1.70+-orange.svg)](https://www.rust-lang.org/)
 [![Tauri](https://img.shields.io/badge/Tauri-v2-blue.svg)](https://tauri.app/)
 [![License](https://img.shields.io/badge/License-MIT-green)](LICENSE)
+[![Ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/bonojovi)
 
 **Write your idea, let AI optimize it into a perfect prompt, then fire it at multiple AI models at once —**
 
@@ -151,3 +152,5 @@ On first launch, go to **Settings** and enter your API keys for the providers yo
 ## License
 
 [MIT](LICENSE) - Copyright (c) 2026 Yoshihiro NAKAHARA
+
+[![Ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/bonojovi)
