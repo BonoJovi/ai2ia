@@ -11,6 +11,7 @@
 [![Tauri](https://img.shields.io/badge/Tauri-v2-blue.svg)](https://tauri.app/)
 [![License](https://img.shields.io/badge/License-MIT-green)](LICENSE)
 [![Ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/bonojovi)
+[![Buy Me a Coffee](https://img.shields.io/badge/Buy%20Me%20a%20Coffee-FFDD00?style=for-the-badge&logo=buy-me-a-coffee&logoColor=black)](https://buymeacoffee.com/BonoJovi)
 
 **Write your idea, let AI optimize it into a perfect prompt, then fire it at multiple AI models at once —**
 
@@ -154,3 +155,4 @@ On first launch, go to **Settings** and enter your API keys for the providers yo
 [MIT](LICENSE) - Copyright (c) 2026 Yoshihiro NAKAHARA
 
 [![Ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/bonojovi)
+[![Buy Me a Coffee](https://img.shields.io/badge/Buy%20Me%20a%20Coffee-FFDD00?style=for-the-badge&logo=buy-me-a-coffee&logoColor=black)](https://buymeacoffee.com/BonoJovi)
