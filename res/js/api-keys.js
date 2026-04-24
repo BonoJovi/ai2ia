@@ -254,28 +254,45 @@ class ApiKeyManager {
             const overlay = document.createElement('div');
             overlay.className = 'modal-overlay';
             overlay.style.display = 'flex';
-            overlay.innerHTML = `
-                <div class="modal-content confirm-dialog">
-                    <div class="modal-header">
-                        <h2>${titleText}</h2>
-                    </div>
-                    <div class="modal-body">
-                        <p>${message}</p>
-                    </div>
-                    <div class="modal-footer">
-                        <button class="btn-secondary confirm-cancel">${cancelText}</button>
-                        <button class="btn-primary confirm-ok">${okText}</button>
-                    </div>
-                </div>
-            `;
+
+            const modal = document.createElement('div');
+            modal.className = 'modal-content confirm-dialog';
+
+            const header = document.createElement('div');
+            header.className = 'modal-header';
+            const h2 = document.createElement('h2');
+            h2.textContent = titleText;
+            header.appendChild(h2);
+
+            const body = document.createElement('div');
+            body.className = 'modal-body';
+            const p = document.createElement('p');
+            p.textContent = message;
+            body.appendChild(p);
+
+            const footer = document.createElement('div');
+            footer.className = 'modal-footer';
+            const cancelBtn = document.createElement('button');
+            cancelBtn.className = 'btn-secondary confirm-cancel';
+            cancelBtn.textContent = cancelText;
+            const okBtn = document.createElement('button');
+            okBtn.className = 'btn-primary confirm-ok';
+            okBtn.textContent = okText;
+            footer.appendChild(cancelBtn);
+            footer.appendChild(okBtn);
+
+            modal.appendChild(header);
+            modal.appendChild(body);
+            modal.appendChild(footer);
+            overlay.appendChild(modal);
 
             const cleanup = (result) => {
                 overlay.remove();
                 resolve(result);
             };
 
-            overlay.querySelector('.confirm-ok').addEventListener('click', () => cleanup(true));
-            overlay.querySelector('.confirm-cancel').addEventListener('click', () => cleanup(false));
+            okBtn.addEventListener('click', () => cleanup(true));
+            cancelBtn.addEventListener('click', () => cleanup(false));
             overlay.addEventListener('click', (e) => {
                 if (e.target === overlay) cleanup(false);
             });
@@ -285,7 +302,7 @@ class ApiKeyManager {
             });
 
             document.body.appendChild(overlay);
-            overlay.querySelector('.confirm-cancel').focus();
+            cancelBtn.focus();
         });
     }
 
@@ -298,26 +315,40 @@ class ApiKeyManager {
             const overlay = document.createElement('div');
             overlay.className = 'modal-overlay';
             overlay.style.display = 'flex';
-            overlay.innerHTML = `
-                <div class="modal-content confirm-dialog">
-                    <div class="modal-header">
-                        <h2>${titleText}</h2>
-                    </div>
-                    <div class="modal-body">
-                        <p>${message}</p>
-                    </div>
-                    <div class="modal-footer">
-                        <button class="btn-primary confirm-ok">${okText}</button>
-                    </div>
-                </div>
-            `;
+
+            const modal = document.createElement('div');
+            modal.className = 'modal-content confirm-dialog';
+
+            const header = document.createElement('div');
+            header.className = 'modal-header';
+            const h2 = document.createElement('h2');
+            h2.textContent = titleText;
+            header.appendChild(h2);
+
+            const body = document.createElement('div');
+            body.className = 'modal-body';
+            const p = document.createElement('p');
+            p.textContent = message;
+            body.appendChild(p);
+
+            const footer = document.createElement('div');
+            footer.className = 'modal-footer';
+            const okBtn = document.createElement('button');
+            okBtn.className = 'btn-primary confirm-ok';
+            okBtn.textContent = okText;
+            footer.appendChild(okBtn);
+
+            modal.appendChild(header);
+            modal.appendChild(body);
+            modal.appendChild(footer);
+            overlay.appendChild(modal);
 
             const cleanup = () => {
                 overlay.remove();
                 resolve();
             };
 
-            overlay.querySelector('.confirm-ok').addEventListener('click', cleanup);
+            okBtn.addEventListener('click', cleanup);
             overlay.addEventListener('click', (e) => {
                 if (e.target === overlay) cleanup();
             });
@@ -326,7 +357,7 @@ class ApiKeyManager {
             });
 
             document.body.appendChild(overlay);
-            overlay.querySelector('.confirm-ok').focus();
+            okBtn.focus();
         });
     }
 
