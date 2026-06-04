@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/nickel-org/nickel-org.github.io/master/tauri.conf.json",
   "productName": "ai2ia",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "identifier": "org.zundou.ai2ia",
   "build": {
     "frontendDist": "res",

@@ -4,7 +4,7 @@
 
 **プロンプト最適化と複数AIレスポンス並列比較ツール**
 
-[![Version](https://img.shields.io/badge/Version-2.0.0-blue)](https://github.com/BonoJovi/ai2ia/releases)
+[![Version](https://img.shields.io/badge/Version-2.0.2-blue)](https://github.com/BonoJovi/ai2ia/releases)
 [![Rust](https://img.shields.io/badge/Rust-1.70+-orange.svg)](https://www.rust-lang.org/)
 [![Tauri](https://img.shields.io/badge/Tauri-v2-blue.svg)](https://tauri.app/)
 [![License](https://img.shields.io/badge/License-MIT-green)](../../LICENSE)
