@@ -106,7 +106,7 @@ echo -e "${CYAN}[CHECK 1] Version Consistency${NC}"
 CARGO_VER=$(grep -oP '^version = "\K[^"]+' Cargo.toml | head -1)
 TAURI_VER=$(jq -r '.version' tauri.conf.json)
 PKG_VER=$(jq -r '.version' package.json)
-README_VER=$(grep -oP '\*\*Version: \K[0-9]+\.[0-9]+\.[0-9]+' README.md | head -1 || echo "NOT_FOUND")
+README_VER=$(grep -oP 'Version-\K[0-9]+\.[0-9]+\.[0-9]+' README.md | head -1 || echo "NOT_FOUND")
 
 # Extract versions from translated READMEs (version pattern varies by language)
 README_JA_VER=$(grep -oP '[0-9]+\.[0-9]+\.[0-9]+' docs/ja/README.md | head -1 || echo "NOT_FOUND")
