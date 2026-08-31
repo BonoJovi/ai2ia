@@ -1,0 +1,212 @@
+# CodeRabbit configuration for ai2ia.
+# https://docs.coderabbit.ai/reference/configuration
+#
+# ai2ia is a Tauri v2 desktop app for parallel multi-provider AI
+# comparison (OpenAI / Anthropic / Google / xAI). Small Rust
+# backend (~500 lines) + Vanilla JS frontend (no bundler), 7 UI
+# locales including an RTL Arabic variant that lives in a
+# separate `res/index-ar.html`. This config tunes CodeRabbit to
+# the parts that actually change and to enforce the project rules
+# in CLAUDE.md.
+
+language: "ja-JP"
+early_access: false
+enable_free_tier: true
+
+# tone_instructions is capped at 250 chars by the validator — keep terse.
+tone_instructions: |
+  Each finding needs a concrete failure scenario (specific inputs/state → wrong output, crash, data corruption, broken user flow). Rank real correctness / security / i18n bugs above style nits. Reply in Japanese; keep findings ≤10 lines.
+
+reviews:
+  profile: "assertive"
+  request_changes_workflow: false
+  high_level_summary: true
+
+  path_filters:
+    # Rust build artifacts.
+    - "!target/**"
+    # Frontend dependencies (Tauri-CLI-only, no bundler).
+    - "!node_modules/**"
+    # AI collaboration methodology — the whole .ai-context/ here
+    # is just the git submodule (no local ESSENTIAL.md yet).
+    - "!.ai-context/shared/**"
+    # Generated Tauri capability / schema files.
+    - "!gen/**"
+    # Static assets: icons, per-locale stats graphs.
+    - "!icons/**"
+    - "!docs/stats_graph_cumulative.png"
+    - "!docs/stats_graph_daily.png"
+    # Auto-generated stats.
+    - "!stats_data.json"
+
+  path_instructions:
+    - path: "src/**/*.rs"
+      instructions: |
+        Production Rust must NOT use unwrap()/expect() — always use
+        Result<T, E> or explicit fallbacks (CLAUDE.md rule #3).
+        unwrap()/expect() are allowed only under `#[cfg(test)]` and
+        in `#[test]` / `#[tokio::test]` fns. Poison-recovery via
+        `.unwrap_or_else(|e| e.into_inner())` on Mutex/RwLock is
+        idiomatic and NOT a violation.
+        Additional project rules to flag:
+        (a) TAURI COMMAND SURFACE — every new `#[tauri::command]`
+            in `src/commands.rs` MUST be registered in the
+            `invoke_handler(tauri::generate_handler![…])` list in
+            `src/lib.rs` in the same PR, otherwise the frontend
+            call fails at runtime with an opaque error. Command
+            return types cross the IPC boundary — prefer
+            `Result<T, String>` (or a typed serde-Serializable
+            error enum) over a bare `panic!`, which becomes an
+            opaque frontend error.
+        (b) MULTI-PROVIDER AI CLIENT — `src/modules/ai_client.rs`
+            fans out to OpenAI / Anthropic / Google / xAI. Any new
+            provider must have its request/response types kept in
+            sync with the provider's current schema, its API-key
+            source-of-truth going through `api_keys.rs` (never a
+            hardcoded env var), a timeout on the HTTP call, and
+            error mapping that does not leak the request body
+            (which may contain the user's prompt) into logs.
+        (c) Do not flag comment length or missing doc comments.
+
+    - path: "src/modules/api_keys.rs"
+      instructions: |
+        API-key storage is user-secret territory. Do NOT log,
+        print, format!, or otherwise emit the plaintext key value
+        anywhere — not in error messages, not in debug traces, not
+        in tests. Redact to a fixed prefix + length when a display
+        form is needed. Any change that widens the key-value's
+        exposure (added to a Serialize struct, logged, returned to
+        a broader scope) is a bug. If the on-disk format changes,
+        confirm the file mode stays at 0600 (or the OS equivalent
+        for user-scoped secrets).
+
+    - path: "res/js/**/*.js"
+      instructions: |
+        Frontend is Vanilla JS (no bundler). Every user-facing
+        string MUST be resolved through `i18n.js` (the
+        `TRANSLATIONS` table) with ALL SEVEN locales populated:
+        `en`, `ja`, `fr`, `it`, `de`, `ru`, `ar`. Missing a locale
+        for a new key silently falls back and ships the raw key
+        (or a mismatched language) to that locale's users. This
+        is the single biggest maintenance load on this repo —
+        flag any commit that adds a `TRANSLATIONS.en[…]` entry
+        without adding the same key under all six other locales.
+        All dynamic values rendered into the DOM MUST be escaped
+        before `innerHTML` / template concatenation — prefer
+        `textContent` / `createElement` when the value never needs
+        to carry markup. Flag raw `${value}` / `+ value`
+        interpolation into `innerHTML`.
+        Tauri app phrasing: say "restart the app", never "reload
+        the browser".
+
+    - path: "res/index.html"
+      instructions: |
+        Layout and script-tag changes here MUST be mirrored to
+        `res/index-ar.html` (the RTL Arabic entry point) in the
+        SAME PR. The two files share `css/style.css` but diverge
+        on `<html lang / dir>`, the extra `css/rtl.css` link, and
+        Arabic-side text content. A change that lands only in
+        `index.html` silently ships a stale Arabic UI. Flag any
+        PR that edits one without the other.
+
+    - path: "res/index-ar.html"
+      instructions: |
+        Arabic RTL entry point. Same sync rule as `res/index.html`
+        applies in the reverse direction. RTL-specific styling
+        must stay in `css/rtl.css`, not inline in this file.
+
+    - path: "res/css/rtl.css"
+      instructions: |
+        RTL-specific overrides for the Arabic entry point. Every
+        rule here should be a genuine RTL adjustment (mirroring
+        margins, text-align, flex-direction, icon positions).
+        Adding non-RTL styling here is a smell — it either
+        belongs in `style.css` or the split is being abused.
+
+    - path: "Cargo.toml"
+      instructions: |
+        Version bumps here MUST accompany the other two version
+        sources in the same commit (CLAUDE.md rule #2): `Cargo.toml`,
+        `tauri.conf.json`, `package.json`. `Cargo.lock` is
+        regenerated automatically by `cargo build` and must be
+        staged so the build stays reproducible, but is not one
+        of the three version-source files. Flag any partial
+        version bump — a mismatch ships a binary whose About
+        dialog and updater manifest disagree.
+        Adding a new direct dependency: prefer a maintained,
+        popular crate; call out anything unmaintained or with
+        outstanding advisories.
+
+    - path: "tauri.conf.json"
+      instructions: |
+        `version` here must match `Cargo.toml` `[package].version`
+        and `package.json` `version` exactly. Window configuration
+        changes (size, decorations, min/max, position) can regress
+        cross-platform display behaviour — call out any change to
+        `windows[].{width,height,x,y,decorations,resizable}` for
+        explicit review.
+
+    - path: "package.json"
+      instructions: |
+        `version` here must match `Cargo.toml` and `tauri.conf.json`.
+        Adding a new dependency at repo root is unusual — the app's
+        JS is served from `res/` without a bundler — flag additions
+        unless clearly justified (Tauri tooling only).
+
+    - path: "src/commands.rs"
+      instructions: |
+        This file is the Tauri IPC surface. Every new
+        `#[tauri::command]` here must be added to the
+        `invoke_handler(tauri::generate_handler![…])` registration
+        in `src/lib.rs` in the same PR. Commands return values
+        that cross the IPC boundary — use `Result<T, String>` or
+        a typed serde-Serializable error, never a bare `panic!`.
+
+    - path: "docs/{ar,de,fr,it,ja,ru}/**"
+      instructions: |
+        Per-locale documentation. When a new user-facing feature
+        lands, the `en/` docs (or the root README) plus these six
+        locale directories are the surface that must stay
+        consistent. Flag content drift where one locale documents
+        a feature or field the others do not — this repo's audience
+        arrives via `docs/<locale>/` and a missing translation
+        ships as a gap, not a fallback.
+
+    - path: "scripts/pre-release-check.sh"
+      instructions: |
+        The pre-release gate (CLAUDE.md rule #5). Do not silently
+        weaken a check here (e.g. `set -e` removed, an early
+        `exit 0`, a `|| true` swallowing failures) unless the PR
+        explicitly justifies why. This script is the last line
+        before a version tag ships.
+
+    - path: "**/*.md"
+      instructions: |
+        `CLAUDE.md` is authoritative for project rules — flag any
+        doc change that contradicts it. Skip prose-level style
+        nits on developer docs.
+
+  auto_review:
+    enabled: true
+    drafts: false
+    auto_incremental_review: true
+    # `0` disables auto-pause and re-reviews every push, which
+    # burns free-tier review quota fast on chatty branches. `1`
+    # pauses after the first review so subsequent commits require
+    # an explicit `@coderabbitai review` (or the next base-branch
+    # merge).
+    auto_pause_after_reviewed_commits: 1
+    # `ignore_title_keywords` uses case-insensitive SUBSTRING match.
+    # `wip` alone matches `feat: add swipe gesture`; even `wip:`
+    # matches a meta-PR like `fix: document the "wip:" syntax`.
+    # `[wip]` (bracketed) is the safest form — practically no
+    # innocent PR title contains those five characters in sequence.
+    ignore_title_keywords:
+      - "[wip]"
+      - "[skip review]"
+    base_branches:
+      - "main"
+      - "dev"
+
+chat:
+  auto_reply: true
