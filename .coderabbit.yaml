@@ -29,6 +29,11 @@ reviews:
     - "!node_modules/**"
     # AI collaboration methodology — the whole .ai-context/ here
     # is just the git submodule (no local ESSENTIAL.md yet).
+    # `.ai-context/shared` is a gitlink; a `/**` glob matches
+    # only files UNDER the submodule, not the submodule pointer
+    # itself, so a periodic submodule-bump PR would otherwise
+    # slip through. Both patterns needed.
+    - "!.ai-context/shared"
     - "!.ai-context/shared/**"
     # Generated Tauri capability / schema files.
     - "!gen/**"
@@ -162,15 +167,16 @@ reviews:
         that cross the IPC boundary — use `Result<T, String>` or
         a typed serde-Serializable error, never a bare `panic!`.
 
-    - path: "docs/{ar,de,fr,it,ja,ru}/**"
+    - path: "docs/{ar,de,en,fr,it,ja,ru}/**"
       instructions: |
-        Per-locale documentation. When a new user-facing feature
-        lands, the `en/` docs (or the root README) plus these six
-        locale directories are the surface that must stay
-        consistent. Flag content drift where one locale documents
-        a feature or field the others do not — this repo's audience
-        arrives via `docs/<locale>/` and a missing translation
-        ships as a gap, not a fallback.
+        Per-locale documentation across all seven UI locales.
+        When a new user-facing feature lands, this whole set is
+        the surface that must stay consistent. Flag content drift
+        where one locale documents a feature or field the others
+        do not — this repo's audience arrives via `docs/<locale>/`
+        and a missing translation ships as a gap, not a fallback.
+        A PR that edits only `docs/en/` (or only one non-English
+        locale) is the most common source of drift.
 
     - path: "scripts/pre-release-check.sh"
       instructions: |
